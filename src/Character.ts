@@ -64,11 +64,17 @@ class Character implements Fighter {
     const damage = atkP - this._defense;
     if (damage > 0) {
       const hp = this._lifePoints - damage;
+      console.log(hp, '<<<<< vida quando recebe o dano');
+      
       this._lifePoints = hp;
     }
     if (this._lifePoints <= 0) {
+      console.log(this._lifePoints, '');
+      
       this._lifePoints = -1;
     }
+    console.log(this._lifePoints, '<<<<< vida depois do dano');
+    
     return this._lifePoints;
   }
 
