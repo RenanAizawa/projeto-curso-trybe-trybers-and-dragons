@@ -21,8 +21,8 @@ class PVE extends Battle {
     // }
     this._enemies.forEach((inimigo) => {
       while (this._p1.lifePoints !== -1 && inimigo.lifePoints !== -1) {
-        console.log(this._p1.lifePoints, '<<<<<< p1 lifepoints');
-        console.log(inimigo.lifePoints, '<<<<<<< inimugo hp');
+        // console.log(this._p1.lifePoints, '<<<<<< p1 lifepoints');
+        // console.log(inimigo.lifePoints, '<<<<<<< inimugo hp');
         
         this._p1.attack(inimigo);
         inimigo.attack(this._p1);

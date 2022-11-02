@@ -22,8 +22,8 @@ class Character implements Fighter {
     this._archetype = new Mage(this._name);
     this._maxLifePoints = this._race.maxLifePoints / 2;
     this._lifePoints = this._maxLifePoints;
-    this._strength = getRandomInt(1, 2);
-    this._defense = getRandomInt(1, 2);
+    this._strength = getRandomInt(1, 10);
+    this._defense = getRandomInt(1, 10);
     this._energy = {
       type_: this._archetype.energyType,
       amount: getRandomInt(1, 10),
@@ -64,16 +64,19 @@ class Character implements Fighter {
     const damage = atkP - this._defense;
     if (damage > 0) {
       const hp = this._lifePoints - damage;
-      console.log(hp, '<<<<< vida quando recebe o dano');
-      
+      // console.log(hp, '<<<<< vida quando recebe o dano');
+      if (hp < 0) {
+        this._lifePoints = -1;
+        return this._lifePoints;
+      }
       this._lifePoints = hp;
     }
-    if (this._lifePoints <= 0) {
-      console.log(this._lifePoints, '');
+    // if (this._lifePoints <= 0) {
+    //   // console.log(this._lifePoints, '');
       
-      this._lifePoints = -1;
-    }
-    console.log(this._lifePoints, '<<<<< vida depois do dano');
+    //   this._lifePoints = -1;
+    // }
+    // console.log(this._lifePoints, '<<<<< vida depois do dano');
     
     return this._lifePoints;
   }

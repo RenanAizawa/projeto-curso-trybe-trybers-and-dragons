@@ -21,13 +21,16 @@ class Monster implements SimpleFighter {
     const damage = attackPoints - this._lifePoints;
     if (damage > 0) {
       const hp = this._lifePoints - damage;
-      console.log(hp, '<<<<<<hp novo do monstro');
-      
+      // console.log(hp, '<<<<<<hp novo do monstro');
+      if (hp < 0) {
+        this._lifePoints = -1;
+        return this._lifePoints;
+      }
       this._lifePoints = hp;
     }
-    if (this._lifePoints <= 0) {
-      this._lifePoints = -1;
-    }
+    // if (this._lifePoints <= 0) {
+    //   this._lifePoints = -1;
+    // }
     return this._lifePoints;
   }
 
